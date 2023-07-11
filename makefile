@@ -19,3 +19,6 @@ up:
 
 down:
 	docker compose down
+
+code:
+	code .
