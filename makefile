@@ -1,6 +1,7 @@
 VENV=./.venv/bin
 PYTHON=$(VENV)/python3
 PIP=$(VENV)/pip3
+MANAGE=$(PYTHON) ./app/manage.py
 
 install:
 	$(PIP) install -r requirements.txt
@@ -8,11 +9,15 @@ install:
 freeze:
 	$(PIP) freeze > requirements.txt
 
+migrate:
+	$(MANAGE) makemigrations
+	$(MANAGE) migrate
+
 test:
-	$(PYTHON) ./app/manage.py test
+	$(MANAGE) test
 
 run:
-	$(PYTHON) ./app/manage.py runserver
+	$(MANAGE) runserver
 
 up:
 	docker compose up --detach
