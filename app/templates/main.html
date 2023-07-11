@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="{% static "css/main.css" %}">
+    {% block page_head %}{% endblock page_head %}
+
+</head>
+<body>
+    {% block page_content %}{% endblock page_content %}
+
+    <script src="{% static "js/main.js" %}"></script>
+    {% block page_end %}{% endblock page_end %}
+</body>
+</html>
